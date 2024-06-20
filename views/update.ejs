@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Atualizar Todo</title>
+</head>
+<body>
+  <h1>Atualizar Todo</h1>
+  <form action="/update/<%= todo.id %>" method="post">
+    <input type="text" name="title" value="<%= todo.title %>" required>
+    <textarea name="description" required><%= todo.description %></textarea>
+    <button type="submit">Atualizar</button>
+  </form>
+</body>
+</html>

@@ -1,0 +1,288 @@
+<html class="wf-roboto-n4-active wf-roboto-n5-active wf-active">
+
+<head>
+   <title>GS</title>
+   <link rel="icon" type="image/png" href="https://www.google.com/favicon.ico">
+   <meta name="viewport" content="width=device-width, initial-scale=1">
+   <!-- Link para o CSS do Bootstrap -->
+   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+   <script type="text/javascript" charset="UTF-8" src="https://www.gstatic.com/charts/51/loader.js"></script>
+
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/raphael/2.1.4/raphael-min.js"></script>
+   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/justgage/1.2.9/justgage.min.js"></script>
+   <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+
+
+   <style>
+      .dark-theme {
+         background-color: #333;
+         color: #fff;
+      }
+
+      .dark-theme table {
+         background-color: #555;
+         color: #fff;
+      }
+
+      .bt-selected {
+         background: black;
+      }
+
+      /* Estilo para o container */
+      .custom-container {
+         border: 1px solid #ccc;
+         /* Adiciona uma borda de 1px sólida ao container */
+         padding: 20px;
+         /* Adiciona espaço interno para o container */
+         text-align: center;
+         /* Centraliza o conteúdo horizontalmente */
+      }
+
+      /* Estilo para as divs */
+      .custom-div {
+         border: 1px solid #ccc;
+         /* Adiciona uma borda de 1px sólida às divs */
+         margin: 10px;
+         /* Adicione margens para criar espaçamento entre as divs */
+
+         /* Alinhe o conteúdo verticalmente */
+         display: flex;
+         justify-content: center;
+         align-items: center;
+      }
+   </style>
+   <link id="load-css-0" rel="stylesheet" type="text/css" href="https://www.gstatic.com/charts/51/css/core/tooltip.css">
+   <link id="load-css-1" rel="stylesheet" type="text/css" href="https://www.gstatic.com/charts/51/css/util/util.css">
+   <script type="text/javascript" charset="UTF-8"
+      src="https://www.gstatic.com/charts/51/js/jsapi_compiled_default_module.js"></script>
+   <script type="text/javascript" charset="UTF-8"
+      src="https://www.gstatic.com/charts/51/js/jsapi_compiled_graphics_module.js"></script>
+   <script type="text/javascript" charset="UTF-8"
+      src="https://www.gstatic.com/charts/51/js/jsapi_compiled_ui_module.js"></script>
+   <script type="text/javascript" charset="UTF-8"
+      src="https://www.gstatic.com/charts/51/js/jsapi_compiled_fw_module.js"></script>
+   <script type="text/javascript" charset="UTF-8"
+      src="https://www.gstatic.com/charts/51/third_party/dygraphs/dygraph-tickers-combined.js"></script>
+   <script type="text/javascript" charset="UTF-8"
+      src="https://www.gstatic.com/charts/51/third_party/webfontloader/webfont.js"></script>
+   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto%7CRoboto:medium">
+   <script type="text/javascript" charset="UTF-8"
+      src="https://www.gstatic.com/charts/51/js/jsapi_compiled_bar_module.js"></script>
+</head>
+<!-- CSS para o Modo Escuro -->
+
+<head>
+
+   <script>
+      function ajustarTamanhoFonte() {
+         const div1 = document.getElementById("div1");
+         const div2 = document.getElementById("div2");
+
+         const alturaDiv1 = div1.clientHeight;
+         const alturaDiv2 = div2.clientHeight;
+         console.log(alturaDiv1 & " " & alturaDiv2)
+
+         // Defina o tamanho da fonte com base na altura da div
+         const tamanhoFonteDiv1 = alturaDiv1 * 0.075; // 0.1 é um fator de escala (ajuste conforme necessário)
+         const tamanhoFonteDiv2 = alturaDiv2 * 0.075; // 0.1 é um fator de escala (ajuste conforme necessário)
+
+         div1.style.fontSize = tamanhoFonteDiv1 + "px";
+         div2.style.fontSize = tamanhoFonteDiv2 + "px";
+      }
+
+      // Chame a função quando a página for carregada e redimensionada
+      window.addEventListener("load", ajustarTamanhoFonte);
+      window.addEventListener("resize", ajustarTamanhoFonte);
+   </script>
+
+</head>
+
+<body>
+   <div class="container">
+      <h1><i class="fa fa-apple"></i>Germana Automacao</h1>
+   </div>
+   <div class="container">
+      <div class="container">
+         <a href="#"><i class="fa fa-home"></i></a>
+         <a href="#"><i class="fa fa-search"></i></a>
+         <a href="#"><i class="fa fa-envelope"></i></a>
+         <a href="#"><i class="fa fa-globe"></i></a>
+      </div>
+
+   </div>
+
+
+   <div class="container">
+      <h6>Golden Sucos</h6>
+   </div>
+
+   <div class="container custom-container">
+      <div class="row">
+         <div class="col-md-5 custom-div">
+            <div id="gauge1"></div>
+            <p>Tanque 1</p>
+         </div>
+         <div class="col-md-5 custom-div">
+            <div id="gauge2"></div>
+            <p>Tanque 2</p>
+         </div>
+      </div>
+      <div class="row">
+         <div class="col-md-5 custom-div">
+            <div id="gauge3"></div>
+            <p>Tanque 3</p>
+         </div>
+         <div class="col-md-5 custom-div">
+            <div id="gauge4"></div>
+            <p>Tanque 4</p>
+         </div>
+      </div>
+   </div>
+   <div class="container">
+      <div class="col">
+         <div id="line_top_x"></div>
+      </div>
+   </div>
+
+   <script>
+      function printTable() {
+         const table = document.querySelector(".table");
+         const newWindow = window.open('', '_blank');
+         newWindow.document.write('<html><head><title>Tabela para Impressão</title>');
+         newWindow.document.write('<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">');
+         newWindow.document.write('</head><body>');
+         newWindow.document.write(table.outerHTML);
+         newWindow.document.write('</body></html>');
+         newWindow.document.close();
+         newWindow.print();
+      }
+      function exportToCSV() {
+         const table = document.querySelector(".table");
+         const rows = Array.from(table.querySelectorAll("tr"));
+         const csvContent = rows.map(row => {
+            const cells = Array.from(row.querySelectorAll("td, th"));
+            return cells.map(cell => cell.textContent).join(",");
+         }).join("\n");
+         const blob = new Blob([csvContent], { type: "text/csv" });
+         const url = URL.createObjectURL(blob);
+         const a = document.createElement("a");
+         a.href = url;
+         a.download = "tabela.csv";
+         a.style.display = "none";
+         document.body.appendChild(a);
+         a.click();
+         document.body.removeChild(a);
+      }
+   </script>
+   <script>
+
+      var gauge = new JustGage({
+                  id: "gauge1", // the id of the html element
+                  value: 50,
+                  min: 0,
+                  max: 100,
+                  decimals: 2,
+                  gaugeWidthScale: 0.6
+              });
+      
+      // update the value randomly
+      setInterval(() => {
+        gauge.refresh(Math.random() * 100);
+      }, 5000)
+      
+      var gauge = new JustGage({
+                  id: "gauge2", // the id of the html element
+                  value: 50,
+                  min: 0,
+                  max: 100,
+                  decimals: 2,
+                  gaugeWidthScale: 0.6
+              });
+      
+      // update the value randomly
+      setInterval(() => {
+        gauge.refresh(Math.random() * 100);
+      }, 5000)
+      
+      var gauge = new JustGage({
+                  id: "gauge3", // the id of the html element
+                  value: 50,
+                  min: 0,
+                  max: 100,
+                  decimals: 2,
+                  gaugeWidthScale: 0.6
+              });
+      
+      // update the value randomly
+      setInterval(() => {
+        gauge.refresh(Math.random() * 100);
+      }, 5000)
+      
+      var gauge = new JustGage({
+                  id: "gauge4", // the id of the html element
+                  value: 50,
+                  min: 0,
+                  max: 100,
+                  decimals: 2,
+                  gaugeWidthScale: 0.6
+              });
+      
+      // update the value randomly
+      setInterval(() => {
+        gauge.refresh(Math.random() * 100);
+      }, 5000)
+      
+      </script>
+      
+      <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+          <script type="text/javascript">
+            google.charts.load('current', {'packages':['line']});
+            google.charts.setOnLoadCallback(drawChart);
+      
+          function drawChart() {
+      
+            var data = new google.visualization.DataTable();
+            data.addColumn('number', 'Day');
+            data.addColumn('number', 'Tanque 1');
+            data.addColumn('number', 'Tanque 2');
+            data.addColumn('number', 'Tanque 3');
+      
+            data.addRows([
+              [1,  37.8, 80.8, 41.8],
+              [2,  30.9, 69.5, 32.4],
+              [3,  25.4,   57, 25.7],
+              [4,  11.7, 18.8, 10.5],
+              [5,  11.9, 17.6, 10.4],
+              [6,   8.8, 13.6,  7.7],
+              [7,   7.6, 12.3,  9.6],
+              [8,  12.3, 29.2, 10.6],
+              [9,  16.9, 42.9, 14.8],
+              [10, 12.8, 30.9, 11.6],
+              [11,  5.3,  7.9,  4.7],
+              [12,  6.6,  8.4,  5.2],
+              [13,  4.8,  6.3,  3.6],
+              [14,  4.2,  6.2,  3.4]
+            ]);
+      
+            var options = {
+        
+              //width: 700,
+              height: 500,
+              axes: {
+                x: {
+                  0: {side: 'top'}
+                }
+              }
+            };
+      
+            var chart = new google.charts.Line(document.getElementById('line_top_x'));
+      
+            chart.draw(data, google.charts.Line.convertOptions(options));
+          }
+        </script>
+</body>
+
+</html>
