@@ -2,6 +2,8 @@
 
 const express = require('express');
 const app = express();
+const routes = require('./routes/index');
+const mqttClient = require('./api/services/MqttService');
 const PORT = process.env.PORT || 80;
 
 // Configurar o EJS como mecanismo de visualização
@@ -17,8 +19,11 @@ app.use(express.json());
 app.use(express.static('public'));
 
 // Rotas principais
-const routes = require('./routes/index');
+
 app.use('/', routes);
+
+mqttClient.connectMqtt();
+
 
 // Iniciar o servidor
 app.listen(PORT, () => {

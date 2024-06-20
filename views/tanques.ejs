@@ -60,12 +60,51 @@
       </div>
     </div>
 
-  </section>
 
-  <footer>
-    ©2023 by Germana
-  </footer>
-</body>
+    <div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      <h1>Dados via MQTT</h1>
+    <ul id="data-list"></ul>
+
+    <script>
+        async function fetchData() {
+            try {
+                const response = await fetch('/dados');
+                const data = await response.json();
+                console.log(JSON.parse(data))               
+            } catch (error) {
+                console.error('Erro ao buscar dados:', error);
+            }
+        }
+
+        // Atualiza os dados a cada 5 segundos
+        setInterval(fetchData, 5000);
+
+        // Carrega os dados inicialmente
+        fetchData();
+    </script>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    </div>
 
 <script>
   setInterval(() => {
@@ -84,7 +123,8 @@
     const tanks = document.getElementsByClassName("tank");
 
     // Converter a HTMLCollection para um array e iterar sobre cada elemento
-    Array.from(tanks).forEach(tank => {
+    Array.from(tanks).forEach((tank,index) => {
+      console.log(index)
       // Encontrar o primeiro e o último elemento <p> dentro do tanque atual
       const pElements = tank.getElementsByTagName("p");
 
