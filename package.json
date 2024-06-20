@@ -1,0 +1,24 @@
+{
+  "dependencies": {
+    "ejs": "^3.1.9",
+    "express": "^4.18.2",
+    "html-minifier": "^4.0.0",
+    "pg": "^8.11.3",
+    "sails": "^1.5.8"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "webgermana",
+  "version": "1.0.0",
+  "description": "webGermana app",
+  "main": "server.js",
+  "keywords": [
+    "app",
+    "web",
+    "crud",
+    "germana"
+  ],
+  "author": "jsz",
+  "license": "ISC"
+}
