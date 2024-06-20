@@ -1,4 +1,4 @@
-const pool = require('../config/db');
+
 
 exports.viewTanks = async (req, res) => {
     const id = req.params.id;
@@ -6,6 +6,6 @@ exports.viewTanks = async (req, res) => {
         res.render('tanques',{});
     } catch (error) {
         console.error(error);
-        res.status(500).send('Eroo');
+        res.status(500).send('Erro');
     }
 };
