@@ -10,7 +10,7 @@ const PORT = process.env.PORT || 80;
 app.set('view engine', 'ejs');
 
 // Middleware para analisar requisições codificadas em URL
-app.use(express.urlencoded({ extended: true }));
+app.use(express.urlencoded({ extended: false }));
 
 // Middleware para analisar requisições JSON
 app.use(express.json());

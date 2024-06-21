@@ -5,6 +5,11 @@ let collectedData // Armazena dado coletado
 const mqttUrl = 'mqtt://35.231.149.126'; // URL do broker MQTT
 const client = mqtt.connect(mqttUrl);
 
+client.on('error', () => {
+    console.log("Erro de conexao - Verifique seu broker")
+})
+
+
 client.on('connect', () => {
     console.log('Conectado ao broker MQTT');
     client.subscribe('golden/tanks', (err) => {
