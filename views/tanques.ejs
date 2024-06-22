@@ -11,6 +11,7 @@
 
   <title>GOLDEN SUCOS</title>
 </head>
+
 <body style="background-color: #8a939f;">
   <header class="header">
     <div style="display: flex; align-items:center; ">
@@ -56,60 +57,67 @@
       </div>
     </div>
 
-    
-    <script>
-      const value = []
-      // Função para preencher um número com zeros à esquerda para um comprimento específico
-      function padWithZeros(number, length) {
-        return number.toString().padStart(length, '0');
-      }
-      async function fetchData() {
-        try {
-          const response = await fetch('/dados');
-          const data = await response.json();
+  </section>
 
-          value[0] = JSON.parse(data).tanque1
-          value[1] = JSON.parse(data).tanque2
+  <footer>
+    ©2023 by Germana
+  </footer>
+</body>
 
-          // Obter todos os elementos com a classe "tank"
-          const tanks = document.getElementsByClassName("tank");
+<script>
+  const value = []
+  // Função para preencher um número com zeros à esquerda para um comprimento específico
+  function padWithZeros(number, length) {
+    return number.toString().padStart(length, '0');
+  }
+  async function fetchData() {
+    try {
+      const response = await fetch('/dados');
+      const data = await response.json();
 
-          Array.from(tanks).forEach((tank, index) => {
-            // Encontrar o primeiro e o último elemento <p> dentro do tanque atual
-            const pElements = tank.getElementsByTagName("p");
+      value[0] = JSON.parse(data).tanque1
+      value[1] = JSON.parse(data).tanque2
 
-            if (pElements.length >= 2) {
-              const firstP = pElements[0];
-              const lastP = pElements[pElements.length - 1];
+      // Obter todos os elementos com a classe "tank"
+      const tanks = document.getElementsByClassName("tank");
 
-              // Gerar valores aleatórios
-              Value1 = value[index]
+      Array.from(tanks).forEach((tank, index) => {
+        // Encontrar o primeiro e o último elemento <p> dentro do tanque atual
+        const pElements = tank.getElementsByTagName("p");
 
-              // Preencher com zeros à esquerda para garantir o mesmo comprimento
-              firstP.innerText = padWithZeros(Value1, 2) + ' %'; // Exemplo: 2 dígitos
-              lastP.innerText = padWithZeros(Math.floor(20000 * Value1 / 100), 5) + ' kg'; // Exemplo: 5 dígitos
+        if (pElements.length >= 2) {
+          const firstP = pElements[0];
+          const lastP = pElements[pElements.length - 1];
 
-              // Ajustar a altura da segunda div dentro da div com a classe "level-bar"
-              const levelBar = tank.querySelector('.level-bar');
-              if (levelBar) {
-                const innerDivs = levelBar.getElementsByTagName('div');
-                if (innerDivs.length >= 2) {
-                  const secondDiv = innerDivs[1];
-                  // Extrair o valor numérico de firstP.innerText e definir como altura
-                  const heightValue = parseInt(firstP.innerText, 10); // Obter o número
-                  secondDiv.style.height = heightValue * 1.4 + 'px'; // Definir a altura em pixels
-                  secondDiv.style.backgroundColor = "hsl(" + Value1 + " 100% 25% / 1)"
-                }
-              }
+          // Gerar valores aleatórios
+          Value1 = value[index]
+
+          // Preencher com zeros à esquerda para garantir o mesmo comprimento
+          firstP.innerText = padWithZeros(Value1, 2) + ' %'; // Exemplo: 2 dígitos
+          lastP.innerText = padWithZeros(Math.floor(20000 * Value1 / 100), 5) + ' kg'; // Exemplo: 5 dígitos
+
+          // Ajustar a altura da segunda div dentro da div com a classe "level-bar"
+          const levelBar = tank.querySelector('.level-bar');
+          if (levelBar) {
+            const innerDivs = levelBar.getElementsByTagName('div');
+            if (innerDivs.length >= 2) {
+              const secondDiv = innerDivs[1];
+              // Extrair o valor numérico de firstP.innerText e definir como altura
+              const heightValue = parseInt(firstP.innerText, 10); // Obter o número
+              secondDiv.style.height = heightValue * 1.4 + 'px'; // Definir a altura em pixels
+              secondDiv.style.backgroundColor = "hsl(" + Value1 + " 100% 25% / 1)"
             }
-          });
-        } catch (error) {
-          console.error('Erro ao buscar dados:', error);
+          }
         }
-      }
-      // Atualiza os dados a cada 10 segundos
-      setInterval(fetchData, 10000);
-      // Carrega os dados inicialmente
-      fetchData();
-    </script>
+      });
+    } catch (error) {
+      console.error('Erro ao buscar dados:', error);
+    }
+  }
+  // Atualiza os dados a cada 10 segundos
+  setInterval(fetchData, 10000);
+  // Carrega os dados inicialmente
+  fetchData();
+</script>
+
 </html>
